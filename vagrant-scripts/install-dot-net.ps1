@@ -3,4 +3,5 @@ $ErrorActionPreference = "Stop"
 
 import-module servermanager
 echo "Enabling .NET Framework"
-add-windowsfeature as-net-framework
+Install-WindowsFeature NET-Framework-45-ASPNET
+# http://geekswithblogs.net/Wchrabaszcz/archive/2013/09/04/how-to-install-windows-server-features-using-powershell--server.aspx
