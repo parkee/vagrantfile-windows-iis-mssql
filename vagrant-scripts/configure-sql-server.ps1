@@ -3,5 +3,5 @@ $ErrorActionPreference = "Stop"
 
 echo Restarting service...
 # Restart service so that configurations are applied
-restart-service -f -displayname "SQL Server (SQLEXPRESS)"
+restart-service -f "SQL Server (SQLEXPRESS)"
 echo DONE!
