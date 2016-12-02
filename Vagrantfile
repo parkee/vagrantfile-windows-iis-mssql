@@ -46,7 +46,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # .NET 4.5
   config.vm.provision :shell, path: "vagrant-scripts/install-dot-net.ps1"  
   #config.vm.provision :shell, path: "vagrant-scripts/install-dot-net-45.cmd"
-  #config.vm.provision :shell, path: "vagrant-scripts/install-msbuild-tools-2013.cmd"
+  config.vm.provision :shell, path: "vagrant-scripts/install-msbuild-tools-2013.cmd"
   
   # Database
   config.vm.provision :shell, path: "vagrant-scripts/install-sql-server.cmd" 
@@ -59,7 +59,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, path: "vagrant-scripts/enable-rdp.ps1"
 
   # IIS   
-  #config.vm.provision :shell, path: "vagrant-scripts/install-iis.cmd"
+  config.vm.provision :shell, path: "vagrant-scripts/install-iis.cmd"
     
   #Create Website
   #config.vm.provision :shell, path: "vagrant-scripts/copy-website.ps1"
