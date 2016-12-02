@@ -31,6 +31,12 @@ end
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|  
 
+  if Vagrant.has_plugin?("vagrant-proxyconf")
+    config.proxy.http     = "http://localhost:3128/"
+    config.proxy.https    = "http://localhost:3128/"
+    config.proxy.no_proxy = "localhost,127.0.0.1,.example.com"
+  end 
+  
   config.vm.box_download_insecure = true
   config.vm.box = "mwrock/Windows2012R2"
   config.vm.guest = :windows

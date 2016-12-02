@@ -19,3 +19,8 @@ GO
 EXEC sp_addrolemember N'db_owner', N'activiti'
 EXEC sp_addrolemember N'db_datareader', N'activiti'
 EXEC sp_addrolemember N'db_datawriter', N'activiti'
+
+GO
+
+ALTER SERVER ROLE [sysadmin] ADD MEMBER [activiti]
+GO
