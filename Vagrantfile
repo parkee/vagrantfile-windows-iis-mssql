@@ -28,6 +28,15 @@ if ! File.exists?('./SQLEXPRADV_x64_ENU.exe')
   download('./SQLEXPRADV_x64_ENU.exe', 'https://download.microsoft.com/download/E/A/E/EAE6F7FC-767A-4038-A954-49B8B05D04EB/ExpressAdv%2064BIT/SQLEXPRADV_x64_ENU.exe')
 end
 
+if ! File.exists?('./wdexpress_full.exe')
+  puts 'Visual Studio 2012 Express installer could not be found!'
+  download('./wdexpress_full.exe', 'https://download.microsoft.com/download/1/F/5/1F519CC5-0B90-4EA3-8159-33BFB97EF4D9/wdexpress_full.exe')
+end
+
+if ! File.exists?('./rewrite_amd64.msi')
+  puts 'IIS Rewrite Plugin installer could not be found!'
+  download('./rewrite_amd64.msi', 'http://download.microsoft.com/download/C/9/E/C9E8180D-4E51-40A6-A9BF-776990D8BCA9/rewrite_amd64.msi')
+end
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|  
 
@@ -47,6 +56,9 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, path: "vagrant-scripts/install-dot-net.ps1"  
   #config.vm.provision :shell, path: "vagrant-scripts/install-dot-net-45.cmd"
   config.vm.provision :shell, path: "vagrant-scripts/install-msbuild-tools-2013.cmd"
+
+  # Visual Studio 2012 Express
+  config.vm.provision :shell, path: "vagrant-scripts/install-vs2012.cmd"
   
   # Database
   config.vm.provision :shell, path: "vagrant-scripts/install-sql-server.cmd" 
